@@ -1,4 +1,5 @@
 'use strict';
+
 //Constructores
 function Seguro(marca, year, tipo) {
     this.marca = marca;
@@ -19,12 +20,34 @@ UI.prototype.fillYears = function() {
         option.textContent = i;
         selectYear.appendChild(option);
     }
+}
+
+//Prototype para validar formulario
+
+UI.prototype.validateForm = function(){
 
 }
 
-//Instanciar objeto UI
+//Instanciar objeto UI sin atributos
 const ui = new UI();
 
+//Eventos
+
 document.addEventListener('DOMContentLoaded', () => {
-    ui.fillYears(); //Lalamar funcion con su metofo para llenar select con los años
+    ui.fillYears(); //Llamar funcion con su metodo para llenar select con los años
 });
+
+eventListeners();
+
+function eventListeners() {
+    //Constantes
+    const formQuoter = document.querySelector('#cotizar-seguro');
+    
+    formQuoter.addEventListener('submit',insuraceQuoter);
+}
+
+function insuraceQuoter(e) {
+    e.preventDefault();
+    console.log('Prueba');
+}
+
